@@ -1,26 +1,23 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const fruits = [
-  'Apple',
-  'Banana',
-  'Cherry',
-  'Date',
-  'Elderberry',
-  'Fig',
-  'Grape',
-  'Honeydew',
-  'Ice Cream Bean',
-  'Jackfruit',
-  'Kiwi',
-  'Lemon',
-  'Mango',
-  'Nectarine',
-  'Orange',
-  'Papaya',
-  'Quince',
-  'Raspberry',
-  'Strawberry',
-  'Tangerine',
+  '🍍 Pineapple',
+  '🍉 Watermelon',
+  '🍊 Orange',
+  '🍓 Strawberry',
+  '🍑 Peach',
+  '🍏 Green Apple',
+  '🍈 Cantaloupe',
+  '🍐 Pear',
+  '🍋 Lemon',
+  '🍌 Banana',
+  '🍎 Apple',
+  '🍒 Cherry',
+  '🍇 Grape',
+  '🥭 Mango',
+  '🥝 Kiwi',
+  '🥥 Coconut',
+  '🥑 Avocado',
 ];
 
 type ResponseData = {
@@ -36,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const queryFruit = (req.query.fruit as string)?.toLowerCase();
 
   // Add a delay to simulate a slow network
-  await new Promise(resolve => setTimeout(resolve, 4000));
+  await new Promise(resolve => setTimeout(resolve, 3000));
 
   // If the query parameter is empty, return all fruits
   if (!queryFruit) {
