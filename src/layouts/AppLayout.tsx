@@ -11,10 +11,10 @@ const AppLayout: FunctionComponent<AppLayoutProps> = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Only1 App</title>
+        <title>Fruit Autocompletion App</title>
         <meta
           name='description'
-          content='A next.js based frontend application that uses the Shadcn, RadixUI, TailwindCSS and React Query to showcase an autocomplete input field'
+          content='A next.js based frontend application that uses Mantine, TailwindCSS and React Query to showcase an autocomplete input field'
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
