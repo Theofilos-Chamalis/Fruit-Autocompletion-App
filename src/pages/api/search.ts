@@ -27,13 +27,16 @@ type ResponseData = {
   fruits: typeof fruits;
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
   // Only allow GET requests that have a query parameter called 'fruit'
   if (req.method !== 'GET' || !('fruit' in req.query)) {
     return res.status(403).end();
   }
 
   const queryFruit = (req.query.fruit as string)?.toLowerCase();
+
+  // Add a delay to simulate a slow network
+  await new Promise(resolve => setTimeout(resolve, 4000));
 
   // If the query parameter is empty, return all fruits
   if (!queryFruit) {
