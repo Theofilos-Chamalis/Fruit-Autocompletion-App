@@ -39,6 +39,20 @@ Start the server (opens the browser automatically)
   npm run dev
 ```
 
+## E2E Testing
+
+Run Cypress Tests interactively
+
+```bash
+  npm run cypress:open
+```
+
+Run Cypress Tests headlessly
+
+```bash
+  npm run cypress:run
+```
+
 ## Deployment & Contribution
 
 Deployment is done using Vercel and the app is hosted here: [https://fruit-autocompletion-app.vercel.app/](https://fruit-autocompletion-app.vercel.app/).
