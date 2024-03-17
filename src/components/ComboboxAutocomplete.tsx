@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { Autocomplete, Loader } from '@mantine/core';
+import { Autocomplete, Loader, AutocompleteProps, Group, Text } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
@@ -17,6 +17,38 @@ const FruitsError = () => (
   </div>
 );
 
+const fruitsEmojiMap = {
+  Pineapple: '🍍',
+  Watermelon: '🍉',
+  Orange: '🍊',
+  Strawberry: '🍓',
+  Peach: '🍑',
+  'Green Apple': '🍏',
+  Cantaloupe: '🍈',
+  Pear: '🍐',
+  Lemon: '🍋',
+  Banana: '🍌',
+  Apple: '🍎',
+  Cherry: '🍒',
+  Grape: '🍇',
+  Mango: '🥭',
+  Kiwi: '🥝',
+  Coconut: '🥥',
+  Avocado: '🥑',
+};
+
+// Render the emoji icons in front of the fruit names
+const renderAutocompleteOption: AutocompleteProps['renderOption'] = ({ option }) => {
+  const comboboxValues = option.value as keyof typeof fruitsEmojiMap;
+
+  return (
+    <div className='flex gap-3 text-xl'>
+      <h3>{fruitsEmojiMap[comboboxValues]}</h3>
+      <h3>{comboboxValues}</h3>
+    </div>
+  );
+};
+
 const ComboboxAutocomplete: FunctionComponent = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ['fruits'],
@@ -32,6 +64,7 @@ const ComboboxAutocomplete: FunctionComponent = () => {
       label='Find your favorite fruit'
       placeholder='Search for a fruit'
       data={data?.fruits}
+      renderOption={renderAutocompleteOption}
       size='xl'
       radius={12}
       comboboxProps={{
